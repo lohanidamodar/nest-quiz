@@ -1,0 +1,8 @@
+server:
+  port: 3000
+
+db:
+  uri: "mongodb://root:rootpass@localhost:27017/nestQuizDB?authSource=admin"
+
+jwt:
+  expiresIn: 3600
