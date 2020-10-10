@@ -1,0 +1,5 @@
+{
+    "name":"Nest Quiz API",
+    "description":"A quiz API developed using nestjs",
+    "repository":"https://github.com/lohanidamodar/"
+}
