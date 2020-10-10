@@ -24,6 +24,10 @@ export class QuestionService {
         return question;
     }
 
+    async getCategoryQuestions(categoryId: string): Promise<Question[]> {
+        return await this.questionModel.find({ 'categoryId': categoryId }).exec();
+    }
+
     async addQuestion(createQuestionDto: CreateQuestionDto): Promise<Question> {
         const question = new this.questionModel();
         question.question = createQuestionDto.question;

@@ -13,11 +13,16 @@ export class QuestionController {
     getAll(): Promise<Question[]> {
         return this.questionService.getAll();
     }
+    @Get('category/:id')
+    getCategoryQuestions(@Param('id') categoryId: string) : Promise<Question[]> {
+        return this.questionService.getCategoryQuestions(categoryId);
+    }
 
     @Get(':id')
     getQuestion(@Param('id') id: string): Promise<Question> {
         return this.questionService.getById(id);
     }
+
 
     @Post()
     addQuestion(@Body(ValidationPipe) createQuestionDto: CreateQuestionDto): Promise<Question> {

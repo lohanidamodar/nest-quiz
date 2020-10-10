@@ -2,11 +2,15 @@
 @basePath=questions
 @id=5f8145b9d2329ea72fc3ba9c
 @entertainmentCategory=5f810ecb57b6ee54961057cb
+@gkCat=5f810f6e739ad857fea4f138
 
 GET {{baseUrl}}/{{basePath}} HTTP/1.1
 
 ###
 GET {{baseUrl}}/{{basePath}}/{{id}} HTTP/1.1
+
+###
+GET {{baseUrl}}/{{basePath}}/category/{{entertainmentCategory}} HTTP/1.1
 
 ###
 POST {{baseUrl}}/{{basePath}} HTTP/1.1
@@ -16,7 +20,7 @@ Content-Type: application/json
     "question":"What is the importance of application?",
     "options":["opt 1","opt 2","opt 3", "opt 4"],
     "answer":"opt 1",
-    "categoryId": "{{entertainmentCategory}}"
+    "categoryId": "{{gkCat}}"
 }
 
 ###
