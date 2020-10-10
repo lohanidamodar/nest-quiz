@@ -5,7 +5,7 @@ import * as config from 'config';
 const db: any = config.get('db');
 
 @Module({
-  imports: [MongooseModule.forRoot(db.uri), CategoryModule],
+  imports: [MongooseModule.forRoot(process.env.DB_URI || db.uri), CategoryModule],
   controllers: [],
   providers: [],
 })

@@ -1,5 +1,15 @@
 {
-    "name":"Nest Quiz API",
-    "description":"A quiz API developed using nestjs",
-    "repository":"https://github.com/lohanidamodar/"
+	"name": "Nest Quiz API",
+	"description": "A quiz API developed using nestjs",
+	"repository": "https://github.com/lohanidamodar/nest-quiz",
+	"keywords": [ "node", "express", "nestjs" ],
+	"env": {
+		"PORT": {
+			"value": 80
+		},
+		"DB_URI": {
+			"description": "Database Mongodb URI"
+		}
+	},
+	"buildpacks": [ { "url": "heroku/nodejs" } ]
 }
