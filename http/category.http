@@ -1,0 +1,28 @@
+@baseUrl=http://localhost:3000
+@basePath=categories
+@id=5f810ecb57b6ee54961057cb
+
+GET {{baseUrl}}/{{basePath}} HTTP/1.1
+
+###
+GET {{baseUrl}}/{{basePath}}/{{id}} HTTP/1.1
+
+###
+POST {{baseUrl}}/{{basePath}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "title":"General Knowledge",
+    "description":"Topics related to GK"
+}
+
+###
+PATCH {{baseUrl}}/{{basePath}}/5f810ecb57b6ee54961057cb HTTP/1.1
+Content-Type: application/json
+
+{
+    "description":"Entertainment, movies and sports"
+}
+
+###
+DELETE {{baseUrl}}/{{basePath}}/5f811022354da35a44fd4001 HTTP/1.1
