@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateQuestionDto } from './dto/create-question.dto';
+import { GetQuestionsFilterDto } from './dto/get-questions-filter.dto';
 import { Question } from './question.model';
 
 @Injectable()
@@ -11,8 +12,21 @@ export class QuestionService {
         private readonly questionModel: Model<Question>) {
 
     }
-    async getAll(): Promise<Question[]> {
-        const categories = await this.questionModel.find().exec();
+    async getAll(filterDto: GetQuestionsFilterDto): Promise<Question[]> {
+        const query = this.questionModel.find();
+        if (filterDto.categoryId) {
+            query.where('categoryId').equals(filterDto.categoryId)
+        }
+        if (filterDto.offset) {
+            query.skip(parseInt(filterDto.offset));
+        }
+        if (filterDto.limit) {
+            query.limit(parseInt(filterDto.limit));
+        }
+        if (filterDto.orderBy && filterDto.orderType) {
+            query.sort({ [filterDto.orderBy]: filterDto.orderType })
+        }
+        const categories = await query.exec();
         return categories;
     }
 

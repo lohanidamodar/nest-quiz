@@ -10,6 +10,9 @@ GET {{baseUrl}}/{{basePath}} HTTP/1.1
 GET {{baseUrl}}/{{basePath}}/{{id}} HTTP/1.1
 
 ###
+GET {{baseUrl}}/{{basePath}}?categoryId={{entertainmentCategory}}&limit=1 HTTP/1.1
+
+###
 GET {{baseUrl}}/{{basePath}}/category/{{entertainmentCategory}} HTTP/1.1
 
 ###

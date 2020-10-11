@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, ValidationPipe } from '@nestjs/common';
 import { CreateQuestionDto } from './dto/create-question.dto';
+import { GetQuestionsFilterDto } from './dto/get-questions-filter.dto';
 import { Question } from './question.model';
 import { QuestionService } from './question.service';
 
@@ -10,8 +11,8 @@ export class QuestionController {
     }
 
     @Get()
-    getAll(): Promise<Question[]> {
-        return this.questionService.getAll();
+    getAll(@Query(ValidationPipe) filterDto: GetQuestionsFilterDto): Promise<Question[]> {
+        return this.questionService.getAll(filterDto);
     }
     @Get('category/:id')
     getCategoryQuestions(@Param('id') categoryId: string) : Promise<Question[]> {
